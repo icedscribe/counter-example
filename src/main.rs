@@ -1,7 +1,7 @@
 use iced::{
     Element,
     Length::Fill,
-    Size, Task,
+    Size,
     widget::{button, center, column, text},
 };
 
@@ -17,10 +17,6 @@ enum Message {
 }
 
 impl App {
-    fn new() -> (Self, Task<Message>) {
-        (Self::default(), Task::none())
-    }
-
     fn update(app: &mut Self, message: Message) {
         match message {
             Message::Increment => {
@@ -51,5 +47,5 @@ impl App {
 fn main() -> iced::Result {
     iced::application("Counter", App::update, App::view)
         .window_size(Size::new(300.0, 600.0))
-        .run_with(App::new)
+        .run()
 }
